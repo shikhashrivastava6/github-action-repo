@@ -29,3 +29,4 @@ jobs:
         uses: action/checkout@v3
         run: |
           docker build -t demo-app:1.0.1
+          
