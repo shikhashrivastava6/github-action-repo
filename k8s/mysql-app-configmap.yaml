@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-info
+data:
+  # property-like keys; each key maps to a simple 
+      DB_HOST: mysqldb
+      DB_USER: root
+      DB_NAME: sample_db
+      DB_PORT: "3306"
+  

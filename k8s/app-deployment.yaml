@@ -1,0 +1,46 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: demo-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-app
+  template:
+    metadata:
+      labels:
+        app: demo-app
+          
+    spec:
+      containers:
+        - name: demo-app
+          image: demo-app:1.0.1
+          ports:
+          - containerPort: 9000
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom: 
+                secretKeyRef: 
+                  key: ROOT_PASSWORD
+                  name: mysecret
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: env-info        
+                  key: DB_HOST
+            - name: DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: env-info        
+                  key: DB_USER
+            - name: DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: env-info        
+                  key: DB_NAME
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: env-info        
+                  key: DB_PORT
