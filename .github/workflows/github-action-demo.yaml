@@ -27,5 +27,5 @@ jobs:
       
       - name: Build Image
         run: |
-          docker build -f ./demo/Dockerfile -t demo-app:1.0.1
+          docker build ./demo -t demo-app:1.0.1 
           
