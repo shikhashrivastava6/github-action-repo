@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./dockerfile
+          file: ./demo
           push: true
           tags: shshrivastava7/demo-app:latest
           
