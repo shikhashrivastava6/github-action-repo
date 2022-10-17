@@ -26,7 +26,7 @@ jobs:
 
       
       - name: Build Image
-        used: action/checkout@v3
+        uses: action/checkout@v3
         run:  |
           docker build -t demo-app:1.0.1
           echo "docker image created"
