@@ -27,4 +27,6 @@ jobs:
       
       - name: Build Image
         uses: action/checkout@v3
-        run: docker build -t demo-app:1.0.1
+        run: |
+          docker build -t ./demo/demo-app:1.0.1
+          
