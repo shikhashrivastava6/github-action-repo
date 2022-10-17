@@ -1,4 +1,3 @@
-
 name: github action demo
 
 on:
@@ -18,7 +17,7 @@ jobs:
     steps:
       
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           # Full git history is needed to get a proper
           # list of changed files within `super-linter`
@@ -31,16 +30,16 @@ jobs:
 
       
       - name: Login to Docker Hub
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           username: shshrivastava7 #${{ secrets.DOCKER_HUB_USERNAME }}
           password: dckr_pat_FAMs0QpEid-LIoPNpPYF5H3714s #${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       
       - name: Build and push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           context: .
           file: demo/
           push: true
-          tags: shshrivastava7/demo-app:latest
+          tags: shshrivastava7/demo-image:latest
           
