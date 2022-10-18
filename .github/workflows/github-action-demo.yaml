@@ -30,7 +30,7 @@ jobs:
         # uses: docker/build-push-action@v3
         run: |
           docker build -f ./demo/Dockerfile -t demo-app:1.0.1 ./demo
-          docker push shshrivastava7/demo-image:latest
+          docker push shshrivastava7/demo-app:1.0.1
         # docker push shshrivastava7/demo-app:1.0.1
         # with:
         #   context: ./demo
