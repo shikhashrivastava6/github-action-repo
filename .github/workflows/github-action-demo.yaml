@@ -19,14 +19,18 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
         with:
-          # Full git history is needed to get a proper
-          # list of changed files within `super-linter`
           fetch-depth: 0
 
       
-      - name: Build Image
-        run: |
-          docker build ./demo -t demo-app:1.0.1 
+      # - name: Build Image
+      #   run: |
+      #     docker build ./demo -t demo-app:1.0.1 
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
 
       
       - name: Login to Docker Hub
@@ -39,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: demo/
+          # file: demo/
           push: true
           tags: shshrivastava7/demo-image:latest
           
