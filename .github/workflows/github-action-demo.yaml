@@ -3,7 +3,6 @@ name: github action demo
 on:
   push:
     branches: [master, main]
-    # Remove the line above to run when pushing to master
   pull_request:
     branches: [master, main]
 
@@ -21,23 +20,20 @@ jobs:
         with:
           fetch-depth: 0
 
-    
-      # - name: Set up Docker Buildx
-      #   uses: docker/setup-buildx-action@v2
-
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: shshrivastava7 #${{ secrets.DOCKER_HUB_USERNAME }}
-          password: dckr_pat_FAMs0QpEid-LIoPNpPYF5H3714s #${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       
       - name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          context: ./demo
-          file: ./demo/Dockerfile
-          push: true
-          tags: shshrivastava7/demo-image:latest
-
-      
-          
+        # uses: docker/build-push-action@v3
+        run: |
+          docker build -f ./demo/Dockerfile -t demo-app:1.0.1 ./demo
+          docker push shshrivastava7/demo-image:latest
+        # with:
+        #   context: ./demo
+        #   file: ./demo/Dockerfile
+        #   push: true
+        #   tags: shshrivastava7/demo-image:latest
+    
