@@ -1,5 +1,5 @@
 # TODO: complete this file
-FROM node:alpine3.16
+FROM node:alpine3.15
 WORKDIR /demo
 COPY package*.json ./
 RUN npm install

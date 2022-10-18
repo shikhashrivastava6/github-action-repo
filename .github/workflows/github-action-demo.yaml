@@ -39,11 +39,11 @@ jobs:
           username: shshrivastava7 #${{ secrets.DOCKER_HUB_USERNAME }}
           password: dckr_pat_FAMs0QpEid-LIoPNpPYF5H3714s #${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       
-      - name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          # context: .
-          # file: demo/
-          push: true
-          tags: shshrivastava7/demo-image:latest
+      # - name: Build and push
+      #   uses: docker/build-push-action@v3
+      #   with:
+      #     # context: .
+      #     # file: demo/
+      #     push: true
+      #     tags: shshrivastava7/demo-image:latest
           
